@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cmasacoTS3.Views.vNotas"
+             Title="vNotas">
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Grid ColumnDefinitions="1*, *, *, *, *" RowDefinitions="Auto, Auto, Auto, Auto" ColumnSpacing="5" RowSpacing="1" Padding="10">
+            <Image Grid.Row="0" Grid.Column="0" Source="https://sige.uisrael.edu.ec/imagenes/LogosUISRAEL/emprende.png" WidthRequest="200" HorizontalOptions="Start"/>
+            <Label Grid.Row="0" Grid.Column="3" x:Name="lblSesion" FontSize="14" VerticalOptions="Center" FontAttributes="Bold" HorizontalOptions="End" TextColor="#325795" Grid.ColumnSpan="2"/>
+        </Grid>
+        
+        <Label Text="Registro de Calificaciones UISRAEL" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        <Grid ColumnDefinitions="2*, *, *, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" ColumnSpacing="10" RowSpacing="10" Padding="20">
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Nombre del Estudiante" FontAttributes="Bold" />
+            <Label Grid.Row="0" Grid.Column="1" Text="Nota 1" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Grid.Row="0" Grid.Column="2" Text="Examen 1" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Grid.Row="0" Grid.Column="3" Text="NP1" HorizontalOptions="Center" FontAttributes="Bold" />
+
+            <Picker Grid.Row="1" Grid.Column="0" x:Name="pkEstudiantes" VerticalOptions="Center"  >
+                <Picker.Items>
+                    <x:String>**Selecione un Estudiante**</x:String>
+                    <x:String>José Ignacio López</x:String>
+                    <x:String>María Del Cisne Macas</x:String>
+                    <x:String>Carmen Soledad Martínez</x:String>
+                    <x:String>Carlos Andrés Morales</x:String>
+                    <x:String>Isaias Daniel Morocho</x:String>
+
+                </Picker.Items>
+            </Picker>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="txtNota1" Placeholder="0,00" Keyboard="Numeric" TextChanged="OnEntryTextChanged" HorizontalTextAlignment="Center" />
+            <Entry Grid.Row="1" Grid.Column="2" x:Name="txtExamen1" Placeholder="0,00" Keyboard="Numeric" TextChanged="OnEntryTextChanged" HorizontalTextAlignment="Center" />
+
+            <Border Grid.Row="1" Grid.Column="3" StrokeShape="RoundRectangle 5" StrokeThickness="1" Stroke="Gray">
+                <Label x:Name="lblNP1" Text="0.00" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Border>
+
+            <Label Grid.Row="2" Grid.Column="1" Text="Nota 2" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Grid.Row="2" Grid.Column="2" Text="Examen 2" HorizontalOptions="Center" FontAttributes="Bold" />
+            <Label Grid.Row="2" Grid.Column="3" Text="NP2" HorizontalOptions="Center" FontAttributes="Bold" />
+
+            <Entry Grid.Row="3" Grid.Column="1" x:Name="txtNota2" Placeholder="0,00" Keyboard="Numeric" TextChanged="OnEntryTextChanged" HorizontalTextAlignment="Center" />
+            <Entry Grid.Row="3" Grid.Column="2" x:Name="txtExamen2" Placeholder="0,00" Keyboard="Numeric" TextChanged="OnEntryTextChanged" HorizontalTextAlignment="Center" />
+
+            <Border Grid.Row="3" Grid.Column="3" StrokeShape="RoundRectangle 5" StrokeThickness="1" Stroke="Gray">
+                <Label x:Name="lblNP2" Text="0.00" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Border>
+
+
+            <Label Grid.Row="4" Grid.Column="2" Text="Nota Final" HorizontalOptions="Center" FontAttributes="Bold" Padding="10"/>
+            <Border Grid.Row="4" Grid.Column="3" StrokeShape="RoundRectangle 5" StrokeThickness="1" Stroke="Gray" >
+                <Label x:Name="lblNF" Text="0.00" VerticalOptions="Center" HorizontalOptions="Center" />
+            </Border>
+
+            <DatePicker Grid.Row="5" Grid.Column="1" 
+                    x:Name="dpFechaIngreso"                        
+                    Format="dd/MM/yyyy"
+                    HorizontalOptions="Fill"/>
+
+            <Button Grid.Row="5" Grid.Column="2"
+                Text="Limpiar" 
+                BackgroundColor="#2196F3" 
+                TextColor="White" 
+                Clicked="btnLimpiar_Clicked"/>
+
+            <Button Grid.Row="5" Grid.Column="3"
+                Text="Calcular" 
+                BackgroundColor="#2196F3" 
+                TextColor="White" 
+                Clicked="btnCalcular_Clicked"/>
+
+
+
+
+        </Grid>
+
+        <Label x:Name="lblEstado" VerticalOptions="Center" HorizontalOptions="Center" />
+
+        <Button Text="Guardar Notas" 
+        Margin="0,20" 
+        BackgroundColor="#2196F3" 
+        TextColor="White" 
+        Clicked="btnGuardar_Clicked"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
